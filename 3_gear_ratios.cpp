@@ -263,17 +263,14 @@ class Solution
 			//cout<<"length of vMatrix[0][0]      : " <<vMatrix[0][0]<<endl
 			//cout<<"length of vMatrix[1][1]      : " <<vMatrix[1][1]<<endl;
 
-			for(size_t i = 0 ; i < vMatrix.size() ; i++)
-			{
+			for(size_t i = 0 ; i < vMatrix.size() ; i++) {
 				for(size_t j = 0 ; j <vMatrix[i].size(); j++)
 				{
-					if(isdigit(vMatrix[i][j]))
-					{
+					if(isdigit(vMatrix[i][j])) {
 						size_t k = 0;
 						size_t l ;
 						string digits  = "" ;
-						for(k = j; k < vMatrix[i].size() ; k++)
-						{
+						for(k = j; k < vMatrix[i].size() ; k++) {
 							if(isdigit(vMatrix[i][k]))
 								digits += vMatrix[i][k] ;
 							else
@@ -281,8 +278,7 @@ class Solution
 						}
 
 						bool found = false ;
-						for(l = j ; l <= k-1; l++)
-						{
+						for(l = j ; l <= k-1; l++) {
 							Matrix* pMatrix = new Matrix() ;
 							pMatrix->SetXPos(i) ;
 							pMatrix->SetYPos(l) ;
