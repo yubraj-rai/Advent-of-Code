@@ -8,11 +8,10 @@ using namespace std;
 int main(void)
 {
 	vector<string> vLine ;
-	while (true)
-	{
+	while (true) {
 		string strLine ;
 		getline(cin, strLine) ;
-		if(strLine.empty())
+		if(strLine.empty() || cin.eof())
 			break ;	
 
 		vLine.push_back(strLine) ; ;
@@ -20,25 +19,19 @@ int main(void)
 
 	int sum = 0 ;
 	vector<string>::iterator itr = vLine.begin() ;
-	while(itr != vLine.end())
-	{
+	while(itr != vLine.end()) {
 		map<int, string> mDigit ;
 		string tempStr = (*itr)  ;
-		for(int i = 0 ; i < tempStr.size() ; i++)
-		{
+		for(int i = 0 ; i < tempStr.size() ; i++) {
 			if(isdigit(tempStr[i]))
 				mDigit[i] = tempStr[i];
 		}
-
-
-		//cout<<"First"<<mDigit.begin()->second<<endl;
-		//cout<<"last"<<mDigit.rbegin()->second<<endl;
 
 		string tempSecondStr ;
 		if(mDigit.begin()->first != mDigit.rbegin()->first)
 			tempSecondStr = (mDigit.begin()->second + mDigit.rbegin()->second) ;
 		else
-			tempSecondStr =  (mDigit.begin()->second + mDigit.begin()->second) ;
+			tempSecondStr = (mDigit.begin()->second + mDigit.begin()->second) ;
 
 		sum += stoi(tempSecondStr) ;
 		mDigit.clear() ;
