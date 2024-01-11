@@ -206,24 +206,24 @@ class Solution
 							mapTemp["left"]  = "L" ;
 							mapTemp["mid"]   = "m" ;
 							mapTemp["right"] = "R" ;
+
 							if(it->first == "toprow" || it->first == "lowrow") {
-								map<string, pair<int,int> >::iterator itr = it->second.begin() ;
-								for(; itr != it->second.end(); itr++) {
+								for(map<string, pair<int,int> >::iterator itr = it->second.begin(); itr != it->second.end(); itr++) {
 									processPartNumber(mapTemp, itr->first, itr->second.first, itr->second.second) ;
 									if(mapTemp["left"] == mapTemp["mid"] || 
 									   mapTemp["right"] == mapTemp["mid"] ||
-									   (mapTemp["left"] == mapTemp["mid"] && 
-									    mapTemp["right"] == mapTemp["mid"]))
+									  (mapTemp["left"] == mapTemp["mid"] && 
+									   mapTemp["right"] == mapTemp["mid"]))
 										continue ;
 									else {
 										vDigits.push_back(mapTemp[itr->first]) ;
 									}
 								}
+
 								mapTemp.clear() ;
 
 							} else if(it->first == "midrow") {
-								map<string, pair<int,int> >::iterator itr = it->second.begin() ;
-								for(; itr != it->second.end(); itr++) {
+								for(map<string, pair<int,int> >::iterator itr = it->second.begin(); itr != it->second.end(); itr++) {
 									processPartNumber(mapTemp, itr->first, itr->second.first, itr->second.second) ;
 									vDigits.push_back(mapTemp[itr->first]) ;
 								}
